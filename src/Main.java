@@ -320,10 +320,10 @@ public class Main{
         System.out.println("Mean Accuracy: " + meanAccuracy + "%");
 
         for(int j = 0; j < totalIterations; j++){
-            totalStandardDeviation += abs(meanAccuracy - correctPercentage[j]);
+            totalStandardDeviation += (meanAccuracy - correctPercentage[j]) * (meanAccuracy - correctPercentage[j]);
         }
 
-        double standardDeviation = totalStandardDeviation / totalIterations;
+        double standardDeviation = Math.sqrt(totalStandardDeviation / totalIterations);
         System.out.println("Standard Deviation: " + standardDeviation);
     }
 }
